@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import ReactDom from 'react-dom'
 import './style.css'
+import XiaojiejieItem from './XiaojiejieItem'
 
 class Xiaojiejie extends Component{
     // 构造函数初始化
@@ -30,11 +31,9 @@ class Xiaojiejie extends Component{
                     {
                         this.state.list.map((item, index)=>{
                             return (
-                                <li 
-                                    key={index}
-                                    onClick={this.deleteItem.bind(this, index)}
-                                    dangerouslySetInnerHTML={{__html: item}}>
-                                </li>
+                                <div>
+                                    <XiaojiejieItem />
+                                </div>
                             )
                         })
                     }
