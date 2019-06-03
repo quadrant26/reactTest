@@ -53,7 +53,8 @@ class Xiaojiejie extends Component{
     // 增加列表
     addList (){
         this.setState({
-            list: [...this.state.list, this.state.inputValue]
+            list: [...this.state.list, this.state.inputValue],
+            inputValue: ''
         })
     }
 }
