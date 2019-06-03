@@ -19,9 +19,9 @@ class Xiaojiejie extends Component{
                     为元素添加class 类名变为 => className
 
                     dangerouslySetInnerHTML = {{__: item}} // 插入html 代码
-                    for => htmlFor
+                    for =>
                  */}
-                <div></div>
+                <div>
                     <label htmlFor="jspang">增加服务</label>
                     <input id='jspang' className="input" type="text" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
                     <button onClick={this.addList.bind(this)}>增加服务</button>
