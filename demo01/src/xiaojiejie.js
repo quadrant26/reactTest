@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import ReactDom from 'react-dom'
+import './style.css'
 
 class Xiaojiejie extends Component{
     // 构造函数初始化
@@ -14,8 +15,15 @@ class Xiaojiejie extends Component{
     render(){
         return (
             <Fragment>
-                <div>
-                    <input type="text" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
+                {/* jsx 注释 多行
+                    为元素添加class 类名变为 => className
+
+                    dangerouslySetInnerHTML = {{__: item}} // 插入html 代码
+                    for => htmlFor
+                 */}
+                <div></div>
+                    <label htmlFor="jspang">增加服务</label>
+                    <input id='jspang' className="input" type="text" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
                     <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
                 <ul>
@@ -24,8 +32,8 @@ class Xiaojiejie extends Component{
                             return (
                                 <li 
                                     key={index}
-                                    onClick={this.deleteItem.bind(this, index)}>
-                                    {item}
+                                    onClick={this.deleteItem.bind(this, index)}
+                                    dangerouslySetInnerHTML={{__html: item}}>
                                 </li>
                             )
                         })
