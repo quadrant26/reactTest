@@ -58,4 +58,16 @@ react study
 
 4. ref
 
-    
+    ref = {(input) => {this.input = input}}
+
+    this.setState({
+        inputValue: this.input.value
+    })
+
+    setState 代码执行是有一个时间的
+    setState 回调函数
+    this.setState({
+        inputValue: this.input.value
+    }, ()=>{
+        callback();
+    })
