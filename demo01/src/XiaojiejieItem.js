@@ -8,15 +8,17 @@ class XiaojijieItem extends Component {
         this.handleClick=this.handleClick.bind(this)
     }
 
-    // 组件第一次存在于DOM中，函数不会被执行
-    // 如果已经存在DOM中，函数才会执行
-    componentWillReceiveProps (){
-        console.log("child-componentWillReceiveProps")
-    }
+    /**
+        // 组件第一次存在于DOM中，函数不会被执行
+        // 如果已经存在DOM中，函数才会执行
+        componentWillReceiveProps (){
+            console.log("child-componentWillReceiveProps")
+        }
 
-    componentWillUnmount (){
-        console.log("destory-componentWillUnmount")
-    }
+        componentWillUnmount (){
+            console.log("destory-componentWillUnmount")
+        }
+    */
     
     render() { 
         console.log('child-render')
@@ -32,13 +34,13 @@ class XiaojijieItem extends Component {
         this.props.deleteItem(this.props.index)
     }
 
+    // 解决render 多次渲染
     shouldComponentUpdate(nextProps,nextState){
         if(nextProps.content !== this.props.content){
             return true
         }else{
             return false
         }
-       
     }
 }
 

@@ -12,7 +12,7 @@ class Xiaojiejie extends Component{
             list: ['基础按摩', '精油推背']
         }
     }
-
+    /**
     componentWillMount(){
         console.log('componentWillMount----组件将要挂载到页面的时刻')
     }
@@ -32,9 +32,9 @@ class Xiaojiejie extends Component{
     componentDidUpdate (){
         console.log("4-componentDidUpdate")
     }
-
+    */
     render(){
-        console.log("3-render")
+        // console.log("3-render")
         return (
             <Fragment>
                 {/* jsx 注释 多行
