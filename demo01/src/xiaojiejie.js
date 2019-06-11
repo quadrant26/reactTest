@@ -13,7 +13,28 @@ class Xiaojiejie extends Component{
         }
     }
 
+    componentWillMount(){
+        console.log('componentWillMount----组件将要挂载到页面的时刻')
+    }
+    componentDidMount(){
+        console.log('componentDidMount----组件挂载完成的时刻执行')
+    }
+
+    shouldComponentUpdate (){
+        console.log("1-shouldComponentUpdate")
+        return true
+    }
+
+    componentWillUpdate (){
+        console.log("2-componentWillUpdate")
+    }
+
+    componentDidUpdate (){
+        console.log("4-componentDidUpdate")
+    }
+
     render(){
+        console.log("3-render")
         return (
             <Fragment>
                 {/* jsx 注释 多行
@@ -57,7 +78,7 @@ class Xiaojiejie extends Component{
      */
 
     inputChange (e){
-        console.log(e.target.value)
+        // console.log(e.target.value)
         /**
          * Error
          * 1. this 指向错误 需要给事件绑定 this
@@ -84,7 +105,7 @@ class Xiaojiejie extends Component{
             inputValue: ''
         }, ()=>{
             // ref 数量
-            console.log( this.ul.querySelectorAll("li").length );
+            // console.log( this.ul.querySelectorAll("li").length );
         })
         
     }
