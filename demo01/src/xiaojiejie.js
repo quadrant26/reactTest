@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react'
-import ReactDom from 'react-dom'
+import axios from 'axios'
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
+import Boss from './Boss'
 
 class Xiaojiejie extends Component{
     // 构造函数初始化
@@ -9,30 +10,21 @@ class Xiaojiejie extends Component{
         super(props)
         this.state = {
             inputValue: '',
-            list: ['基础按摩', '精油推背']
+            list: []
         }
     }
-    /**
-    componentWillMount(){
-        console.log('componentWillMount----组件将要挂载到页面的时刻')
+    
+    componentDidMount (){
+        axios.get('https://www.easy-mock.com/mock/5cff5255ae06cd5f4fc7e053/reactdemo01/xiaojiejie')
+        .then((res)=>{
+            console.log('axios 获取数据成功:'+JSON.stringify(res))
+            this.setState({
+                list: res.data.data
+            })
+        })
+        .catch((error)=>{console.log('axios 获取数据失败'+error)})
     }
-    componentDidMount(){
-        console.log('componentDidMount----组件挂载完成的时刻执行')
-    }
-
-    shouldComponentUpdate (){
-        console.log("1-shouldComponentUpdate")
-        return true
-    }
-
-    componentWillUpdate (){
-        console.log("2-componentWillUpdate")
-    }
-
-    componentDidUpdate (){
-        console.log("4-componentDidUpdate")
-    }
-    */
+    
     render(){
         // console.log("3-render")
         return (
@@ -68,6 +60,7 @@ class Xiaojiejie extends Component{
                         })
                     }
                 </ul>
+                <Boss></Boss>
             </Fragment>
         )
     }
