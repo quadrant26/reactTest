@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react'
+import {CSSTransition , TransitionGroup} from 'react-transition-group'
 import axios from 'axios'
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
@@ -48,17 +49,27 @@ class Xiaojiejie extends Component{
                     <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
                 <ul ref={(ul) => {this.ul=ul}}>
+                <TransitionGroup>
                     {
-                        this.state.list.map((item, index)=>{
+                        this.state.list.map((item,index)=>{
                             return (
-                                <XiaojiejieItem 
-                                    key={index+item} 
-                                    content={item} 
-                                    index={index} 
-                                    deleteItem={this.deleteItem.bind(this)} />
+                                <CSSTransition
+                                    timeout={1000}
+                                    classNames='boss-text'
+                                    unmountOnExit
+                                    appear={true}
+                                    key={index+item}  
+                                >
+                                    <XiaojiejieItem 
+                                    content={item}
+                                    index={index}
+                                    deleteItem={this.deleteItem.bind(this)}
+                                    />
+                                </CSSTransition>
                             )
                         })
                     }
+                    </TransitionGroup>
                 </ul>
                 <Boss></Boss>
             </Fragment>
