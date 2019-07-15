@@ -149,3 +149,56 @@ react study
         componentWillUnmount(){
             console.log('child - componentWillUnmount')
         }
+
+react-transition-group
+
+    1. use
+
+        npm install react-transition-group --save
+
+        import { CSSTransition } from 'react-transition-group'
+
+        <CSSTransition 
+            in={this.state.isShow}   //用于判断是否出现的状态
+            timeout={2000}           //动画持续时间
+            classNames="boss-text"   //className值，防止重复
+        >
+
+    css
+
+        xxx-enter: 进入（入场）前的CSS样式；
+        xxx-enter-active:进入动画直到完成时之前的CSS样式;
+        xxx-enter-done:进入完成时的CSS样式;
+        xxx-exit:退出（出场）前的CSS样式;
+        xxx-exit-active:退出动画知道完成时之前的的CSS样式。
+        xxx-exit-done:退出完成时的CSS样式。
+
+    3. unmountOnExit 属性
+
+        比如我们给<CSSTransition>加上unmountOnExit,加上这个的意思是在元素退场时，自动把DOM也删除
+
+多DOM动画制作和编写
+
+    import {CSSTransition , TransitionGroup} from 'react-transition-group'
+
+    <TransitionGroup>
+    {
+        this.state.list.map((item,index)=>{
+            return (
+                <CSSTransition
+                    timeout={1000}
+                    classNames='boss-text'
+                    unmountOnExit
+                    appear={true}
+                    key={index+item}  
+                >
+                    <XiaojiejieItem 
+                    content={item}
+                    index={index}
+                    deleteItem={this.deleteItem.bind(this)}
+                    />
+                </CSSTransition>
+            )
+        })
+    }
+    </TransitionGroup>
